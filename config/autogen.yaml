@@ -1,0 +1,23 @@
+# AutoGen 工作流配置
+workflow:
+  default_mode: graphflow    # graphflow | selector | roundrobin
+  save_run_logs: true
+  run_dir: reports/autogen_runs
+  max_retries: 2             # evidence gate 最大重试次数
+
+evidence:
+  require_evidence_labels: true
+  allow_c_level_inference: true
+  block_unsupported_claims: true
+
+agents:
+  max_tool_iterations: 3
+  evidence_auditor:
+    strict_mode: true
+  risk_reviewer:
+    strict_mode: true
+
+output:
+  format: markdown
+  validate_schema: true
+  termination_marker: "FINAL_REPORT"

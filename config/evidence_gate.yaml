@@ -1,0 +1,14 @@
+# 证据门禁配置
+evidence_gate:
+  max_unsupported_major_claims: 0    # 不允许任何无证据核心主张
+  max_c_level_core_claims: 2         # 最多 2 个 C 级核心主张
+  require_a_or_b_for_method_claims: true  # 方法论主张必须 A 或 B 级
+  require_limitations_for_c_level: true   # C 级主张必须附局限说明
+
+  # 门禁失败时路由回退
+  routing:
+    on_unsupported: "scholar_mentor"     # 无证据 → 回到 scholar_mentor 补证据
+    on_weak_method: "method_mapper"      # 方法证据弱 → 回到 method_mapper
+
+  # 重试
+  max_retries: 2                         # 最多重试 2 次

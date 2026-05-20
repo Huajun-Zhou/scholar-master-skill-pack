@@ -1,0 +1,13 @@
+# 检索配置 — Scholar Core 使用
+retrieval:
+  wiki_top_k: 8
+  method_card_top_k: 5
+  thinking_model_top_k: 5
+  evidence_top_k: 10
+
+ranking:
+  title_match_weight: 3.0
+  frontmatter_keyword_weight: 2.0
+  body_match_weight: 1.0
+  prefer_A_over_B_over_C: true
+  min_confidence: 0.5

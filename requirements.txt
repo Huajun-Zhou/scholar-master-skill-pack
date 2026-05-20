@@ -1,0 +1,5 @@
+PyMuPDF>=1.23.0
+pyyaml>=6.0
+jsonschema>=4.20.0
+tqdm>=4.66.0
+rich>=13.0.0

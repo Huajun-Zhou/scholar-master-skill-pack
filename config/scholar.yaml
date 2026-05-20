@@ -1,0 +1,24 @@
+# 学者元信息配置
+scholar:
+  name: "Zhiyuan Chen"          # 拼音名（用于英文场景）
+  name_zh: "陈志远"               # 中文名
+  display_name: "陈志远教授"       # 系统对外展示名
+  affiliation: "北京邮电大学网络空间安全学院"
+  research_area: "通信安全"
+  sub_areas:
+    - "工业物联网安全"
+    - "无人机安全通信"
+    - "可信计算"
+    - "鲁棒组网"
+    - "隐私保护"
+    - "图神经网络安全"
+  homepage: ""
+  google_scholar: ""
+  dblp: ""
+  orcid: ""
+
+# 论文收集范围
+collection:
+  include_years: []
+  include_venues: []
+  max_papers: 0

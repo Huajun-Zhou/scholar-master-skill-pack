@@ -1,0 +1,53 @@
+# 质量门禁配置
+quality_gates:
+  QG1:  # PDF 解析质量 (Phase 1)
+    min_text_pages_ratio: 0.7
+    require_title_candidate: true
+    require_source_id: true
+    protect_raw_pdfs: true
+
+  QG2:  # Paper Card evidence 覆盖 (Phase 2)
+    min_a_evidence_coverage: 0.9
+    forbid_source_less_claims: true
+    require_sections: ["problem", "method", "experiment", "contribution", "limitation"]
+
+  QG3:  # Wiki frontmatter/link 完整 (Phase 3)
+    require_frontmatter: true
+    min_links_per_concept: 1
+    min_links_per_method: 1
+    no_orphan_core_pages: true
+
+  QG4:  # 跨论文综合 (Phase 4)
+    min_papers_per_research_line: 3
+    require_timeline_order: true
+    forbid_single_paper_as_paradigm: true
+
+  QG5:  # Method Cards (Phase 5)
+    min_sources_per_card: 2
+    require_unsuitable_scenarios: true
+    require_transfer_conditions: true
+    require_c_marking: true
+
+  QG6:  # Thinking Models (Phase 6)
+    min_sources_per_model: 2
+    require_applicable_and_not: true
+    require_b_or_c_marking: true
+
+  QG7:  # Skill 编译 (Phase 7)
+    max_skill_length: 8000
+    require_no_impersonation: true
+    require_evidence_policy: true
+    min_examples: 3
+
+  QG8:  # 交互回答 (Phase 8)
+    require_abc_separation: true
+    require_source_listing: true
+    require_c_marking: true
+    require_uncertainty: true
+
+  QG9:  # 幻觉测试 (Phase 9)
+    min_evidence_coverage: 0.85
+    min_hallucination_refusal: 0.95
+    min_transfer_usefulness: 4.0
+    min_compliance: 0.9
+    max_broken_links: 0

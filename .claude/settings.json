@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python scripts/check_wiki_links.py || true"
+          },
+          {
+            "type": "command",
+            "command": "python scripts/check_evidence_coverage.py || true"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python scripts/setup_project.py --protect-raw-pdfs || true"
+          }
+        ]
+      }
+    ]
+  }
+}

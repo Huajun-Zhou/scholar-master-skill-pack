@@ -1,0 +1,16 @@
+# Prompt 配置文件
+prompts:
+  paper_card_extraction: "prompts/paper_card_extraction.md"
+  evidence_extraction: "prompts/evidence_extraction.md"
+  concept_extraction: "prompts/concept_extraction.md"
+  method_card_distillation: "prompts/method_card_distillation.md"
+  thinking_model_distillation: "prompts/thinking_model_distillation.md"
+  research_paradigm_synthesis: "prompts/research_paradigm_synthesis.md"
+  wiki_update_protocol: "prompts/wiki_update_protocol.md"
+  evidence_audit: "prompts/evidence_audit.md"
+  scholar_answer: "prompts/scholar_answer.md"
+
+  defaults:
+    model: "claude-sonnet-4-6"
+    temperature: 0.3
+    max_tokens: 8000

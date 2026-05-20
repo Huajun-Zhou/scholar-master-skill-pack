@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["paper_id", "title", "year", "problem", "method", "contribution"],
+  "properties": {
+    "paper_id": { "type": "string" },
+    "title": { "type": "string" },
+    "year": { "type": "integer" },
+    "authors": { "type": "array", "items": { "type": "string" } },
+    "venue": { "type": "string" },
+    "doi": { "type": "string" },
+    "source_file": { "type": "string" },
+    "processing_status": {
+      "type": "string",
+      "enum": ["draft", "audited", "validated", "needs_review"]
+    },
+    "one_liner": { "type": "string" },
+    "problem": {
+      "type": "object",
+      "required": ["original", "abstraction", "importance"],
+      "properties": {
+        "original": { "type": "string" },
+        "abstraction": { "type": "string" },
+        "importance": { "type": "string" }
+      }
+    },
+    "core_idea": { "type": "string" },
+    "method": {
+      "type": "object",
+      "properties": {
+        "input": { "type": "string" },
+        "output": { "type": "string" },
+        "model": { "type": "string" },
+        "algorithm": { "type": "string" },
+        "loss_function": { "type": "string" },
+        "datasets": { "type": "array", "items": { "type": "string" } },
+        "metrics": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "experiments": {
+      "type": "object",
+      "properties": {
+        "baselines": { "type": "array", "items": { "type": "string" } },
+        "ablations": { "type": "string" },
+        "robustness": { "type": "string" },
+        "case_study": { "type": "string" },
+        "human_eval": { "type": "string" }
+      }
+    },
+    "conclusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim", "evidence_id"],
+        "properties": {
+          "claim": { "type": "string" },
+          "evidence_id": { "type": "string" },
+          "confidence": { "type": "string", "enum": ["low", "medium", "high"] }
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "assumption": { "type": "string" },
+          "source": { "type": "string", "enum": ["explicit", "inferred"] }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "limitation": { "type": "string" },
+          "source": { "type": "string", "enum": ["self_stated", "system_inferred"] }
+        }
+      }
+    },
+    "transferable_insights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["insight", "evidence_level"],
+        "properties": {
+          "insight": { "type": "string" },
+          "evidence_level": { "type": "string", "const": "C" },
+          "transfer_conditions": { "type": "string" }
+        }
+      }
+    },
+    "paper_relations": {
+      "type": "object",
+      "properties": {
+        "predecessors": { "type": "array", "items": { "type": "string" } },
+        "successors": { "type": "array", "items": { "type": "string" } },
+        "same_topic": { "type": "array", "items": { "type": "string" } },
+        "method_inherited_from": { "type": "array", "items": { "type": "string" } },
+        "method_diverged_to": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence_table": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["evidence_id", "page", "section", "claim_type"],
+        "properties": {
+          "evidence_id": { "type": "string" },
+          "page": { "type": "integer" },
+          "section": { "type": "string" },
+          "claim_type": { "type": "string" },
+          "confidence": { "type": "string" }
+        }
+      }
+    }
+  }
+}

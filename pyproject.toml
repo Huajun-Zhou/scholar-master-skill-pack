@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scholar-skill-pack"
+version = "0.2.0"
+description = "Academic Master Skill Pack — 把学者公开论文炼化为 AI 科研助手，支持 AutoGen 多智能体科研工作流"
+requires-python = ">=3.10"
+dependencies = [
+    "PyMuPDF>=1.23.0",
+    "pyyaml>=6.0",
+    "jsonschema>=4.20.0",
+    "tqdm>=4.66.0",
+    "rich>=13.0.0",
+    "autogen-agentchat>=0.4",
+    "autogen-ext[openai]>=0.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.scripts]
+scholar-skill-pack = "scholar_skill_pack.cli:main"
+scholar-ask = "autogen_app.cli:ask"
+scholar-design = "autogen_app.cli:design"
+scholar-critique = "autogen_app.cli:critique"
+
+[tool.setuptools.packages.find]
+where = ["src"]

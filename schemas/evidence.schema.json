@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "evidence_id", "paper_id", "source_file", "page",
+    "section", "chunk_id", "claim", "support_type", "confidence"
+  ],
+  "properties": {
+    "evidence_id": { "type": "string" },
+    "paper_id": { "type": "string" },
+    "source_file": { "type": "string" },
+    "page": { "type": "integer" },
+    "section": { "type": "string" },
+    "chunk_id": { "type": "string" },
+    "claim": { "type": "string" },
+    "support_type": {
+      "type": "string",
+      "enum": ["direct", "paraphrase", "inferred", "negative", "uncertain"]
+    },
+    "evidence_level": {
+      "type": "string",
+      "enum": ["A", "B", "C"]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "quote_or_anchor": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}

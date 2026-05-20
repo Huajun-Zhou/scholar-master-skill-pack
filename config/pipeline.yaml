@@ -1,0 +1,45 @@
+# 处理管线配置
+pipeline:
+  # PDF 解析
+  pdf_parser:
+    engine: "pymupdf"          # pymupdf | grobid
+    extract_figures: false     # MVP 关闭
+    extract_tables: false      # MVP 关闭
+    min_text_ratio: 0.7        # 最少 70% 页面有非空文本
+
+  # Chunking
+  chunker:
+    chunk_size: 2000           # token 估算
+    chunk_overlap: 200
+    split_by: "section"        # section | page | fixed
+
+  # Paper Card 生成
+  paper_card:
+    model: "claude-sonnet-4-6"
+    max_tokens_per_paper: 8000
+    require_evidence_ids: true
+
+  # Evidence 提取
+  evidence:
+    min_confidence: "medium"
+    support_types: ["direct", "paraphrase", "inferred"]
+
+  # Wiki 更新
+  wiki:
+    staging_enabled: true
+    auto_merge: false          # 需要人工审核
+
+  # Method Cards
+  method_cards:
+    min_source_papers: 2
+    core_min_source_papers: 3
+
+  # Thinking Models
+  thinking_models:
+    min_source_papers: 2
+    candidate_threshold: 1
+
+  # 报告
+  reports:
+    output_dir: "reports"
+    format: "markdown"

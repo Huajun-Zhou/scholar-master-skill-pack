@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["method_id", "method_name", "definition", "source_papers", "core_mechanism"],
+  "properties": {
+    "method_id": { "type": "string" },
+    "method_name": { "type": "string" },
+    "definition": { "type": "string" },
+    "source_papers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["paper_id", "evidence_id"],
+        "properties": {
+          "paper_id": { "type": "string" },
+          "title": { "type": "string" },
+          "year": { "type": "integer" },
+          "evidence_id": { "type": "string" }
+        }
+      }
+    },
+    "applicable_problem_types": { "type": "array", "items": { "type": "string" } },
+    "core_mechanism": { "type": "string" },
+    "typical_pipeline": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "input_conditions": {
+      "type": "object",
+      "properties": {
+        "data_types": { "type": "array", "items": { "type": "string" } },
+        "assumptions": { "type": "array", "items": { "type": "string" } },
+        "sample_scale": { "type": "string" },
+        "annotation_requirements": { "type": "string" },
+        "compute_requirements": { "type": "string" }
+      }
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "predictions": { "type": "string" },
+        "representations": { "type": "string" },
+        "ranking": { "type": "string" },
+        "explanation": { "type": "string" },
+        "decision_support": { "type": "string" }
+      }
+    },
+    "advantages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["advantage", "evidence_id"],
+        "properties": {
+          "advantage": { "type": "string" },
+          "evidence_id": { "type": "string" }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["limitation", "source"],
+        "properties": {
+          "limitation": { "type": "string" },
+          "source": { "type": "string", "enum": ["self_stated", "system_inferred"] }
+        }
+      }
+    },
+    "transfer_plan": {
+      "type": "object",
+      "required": ["evidence_level"],
+      "properties": {
+        "evidence_level": { "type": "string", "const": "C" },
+        "transfer_conditions": { "type": "string" },
+        "adaptation_steps": { "type": "string" },
+        "risks": { "type": "string" }
+      }
+    },
+    "combinations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "with_method": { "type": "string" },
+          "combination_logic": { "type": "string" }
+        }
+      }
+    }
+  }
+}

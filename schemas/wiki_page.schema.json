@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["page_id", "page_type", "title", "status", "evidence_level"],
+  "properties": {
+    "page_id": { "type": "string" },
+    "page_type": {
+      "type": "string",
+      "enum": ["paper", "concept", "method", "dataset", "experiment", "synthesis", "index", "timeline", "paradigm", "glossary", "log"]
+    },
+    "title": { "type": "string" },
+    "created_at": { "type": "string", "format": "date" },
+    "updated_at": { "type": "string", "format": "date" },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "reviewed", "validated"]
+    },
+    "evidence_level": {
+      "type": "string",
+      "enum": ["A", "B", "C", "mixed"]
+    },
+    "source_papers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "related_pages": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "last_lint": { "type": "string", "format": "date" }
+  }
+}

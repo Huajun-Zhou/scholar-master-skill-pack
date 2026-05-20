@@ -1,0 +1,1 @@
+"""Scholar Skill Web API."""

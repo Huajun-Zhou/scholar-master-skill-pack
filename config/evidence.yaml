@@ -1,0 +1,14 @@
+# 证据政策配置 — Scholar Core / Evidence Gate 使用
+evidence_policy:
+  levels:
+    A: "direct evidence from one or more source papers"
+    B: "synthesis across multiple source papers (>=2)"
+    C: "transferable inference — not directly stated in source papers"
+    Insufficient: "not supported by the available scholar corpus"
+
+output_policy:
+  require_evidence_label: true
+  require_limitations: true
+  forbid_fabricated_citations: true
+  forbid_impersonation: true
+  require_uncertainty_marking: true

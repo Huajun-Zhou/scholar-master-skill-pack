@@ -1,0 +1,19 @@
+# 模型配置 — AutoGen 使用 (DeepSeek)
+default:
+  provider: openai
+  model: deepseek-chat
+  temperature: 0.2
+  max_tokens: 8000
+
+# 可选: 不同工作流使用不同模型
+ask_scholar:
+  model: deepseek-chat
+  temperature: 0.1   # 更低的温度以减少幻觉
+
+design_research:
+  model: deepseek-chat
+  temperature: 0.3   # 稍高温度以增强创造性
+
+critique_paper:
+  model: deepseek-chat
+  temperature: 0.2
