@@ -1,4 +1,3 @@
 [build]
-  base = "web/"
+  command = "cd web && npm install && npm run build"
   publish = "web/.next"
-  command = "npm run build"

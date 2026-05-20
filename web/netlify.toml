@@ -1,8 +1,2 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-
-[build]
-  command = "npx next build"
-
-[build.environment]
-  NODE_VERSION = "20"
