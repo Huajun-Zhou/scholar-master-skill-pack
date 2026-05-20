@@ -15,11 +15,14 @@ async function getPaper(id: string): Promise<PaperData | null> {
   return {
     paper_id: id,
     title: String(fm.title || ""),
-    year: fm.paper_year as number | undefined,
+    year: (fm.paper_year as number) ?? null,
     authors: (fm.authors as string[]) || [],
     venue: String(fm.venue || ""),
     abstract: "",
     body: page.body,
+    frontmatter: page.frontmatter,
+    evidence_ids: [],
+    source_papers: (fm.source_papers as string[]) || [],
   };
 }
 
