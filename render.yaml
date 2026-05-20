@@ -2,10 +2,10 @@ services:
   - type: web
     name: scholar-api
     runtime: python
-    buildCommand: pip install fastapi uvicorn[standard] pyyaml openai websockets
-    startCommand: cd api && uvicorn server:app --host 0.0.0.0 --port $PORT
+    buildCommand: pip install -r requirements.render.txt
+    startCommand: cd api && python3 -m uvicorn server:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.0
+        value: "3.11"
       - key: CORS_ORIGINS
         value: "*"
