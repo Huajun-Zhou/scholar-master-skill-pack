@@ -10,21 +10,18 @@ interface WikiPageData {
   source_papers: string[];
 }
 
-async function getWikiPage(slug: string[]): Promise<WikiPageData | null> {
-  try {
-    const path = slug.join("/");
-    const res = await fetch(
-      `/api/wiki/${path}`,
-      { next: { revalidate: 60 } }
-    );
-    if (!res.ok) return null;
-    return res.json();
-  } catch {
-    return null;
-  }
+import { getWikiPage as loadWikiPage } from "@/lib/wiki-server";
+
+export const dynamic = "force-dynamic";
+
+function getWikiPage(slug: string[]): WikiPageData | null {
+  const wikiPath = slug.join("/");
+  const page = loadWikiPage(wikiPath);
+  if (!page) return null;
+  return { ...page, html: "", evidence_ids: [], source_papers: [] } as WikiPageData;
 }
 
-export default async function WikiSlugPage({
+export default function WikiSlugPage({
   params,
 }: {
   params: Promise<{ slug: string[] }>;

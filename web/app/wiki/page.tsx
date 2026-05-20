@@ -1,20 +1,11 @@
 import { MarkdownRenderer } from "@/components/common/MarkdownRenderer";
 import Link from "next/link";
+import { getWikiIndex } from "@/lib/wiki-server";
 
-async function getWikiIndex() {
-  try {
-    const res = await fetch("/api/wiki/index", {
-      next: { revalidate: 60 },
-    });
-    if (!res.ok) throw new Error("Failed to fetch");
-    return res.json();
-  } catch {
-    return null;
-  }
-}
+export const dynamic = "force-dynamic";
 
-export default async function WikiPage() {
-  const data = await getWikiIndex();
+export default function WikiPage() {
+  const data = getWikiIndex();
 
   return (
     <div className="min-h-screen bg-[var(--bg-base)]">
