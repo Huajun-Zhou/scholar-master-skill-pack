@@ -21,7 +21,7 @@ export default function WikiPage() {
             Scholar Wiki
           </h1>
           <p className="text-[var(--text-secondary)]">
-            陈志远教授学术知识库 — {data?.frontmatter?.source_papers?.length || 15} 篇论文 · 7 个方法卡片 · 6 个思维模型
+            陈志远教授学术知识库 — 15 篇论文 · 7 个方法卡片 · 6 个思维模型
           </p>
         </div>
 
