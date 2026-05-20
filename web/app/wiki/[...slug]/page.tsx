@@ -21,13 +21,13 @@ function getWikiPage(slug: string[]): WikiPageData | null {
   return { ...page, html: "", evidence_ids: [], source_papers: [] } as WikiPageData;
 }
 
-export default function WikiSlugPage({
+export default async function WikiSlugPage({
   params,
 }: {
   params: Promise<{ slug: string[] }>;
 }) {
   const { slug } = await params;
-  const data = await getWikiPage(slug);
+  const data = getWikiPage(slug);
 
   if (!data) {
     notFound();
